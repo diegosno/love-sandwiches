@@ -86,6 +86,16 @@ def calculate_surplus_data(sales_row):
     return surplus_data
 
 
+def get_stock_values(data):
+    headings = SHEET.worksheet("stock").row_values(1)
+    stock_dict = {heading: value for heading, value in zip(headings, data)}
+    return stock_dict
+
+
+stock_values = get_stock_values(stock_data)
+print(stock_values)
+
+
 def get_last_5_entries_sales():
     """
     Collects columns of data from sales worksheet, collecting
